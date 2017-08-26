@@ -46,18 +46,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_A,    KC_S,      KC_D,    KC_F,    KC_G,
         KC_LSFT, KC_Z,    KC_X,      KC_C,    KC_V,    KC_B,                KC_JYEN,
                       // MO(CALC),  MO(MOVE), KC_LEFT, KC_RGHT, MT(MOD_LGUI, KC_LANG2),
-                      MO(CALC),  MO(MOVE), KC_LEFT, KC_RGHT, KC_LGUI,
+                      MO(CALC),  KC_LALT, KC_LEFT, KC_RGHT, KC_LGUI,
                                                       KC_LCTL,              KC_LALT,
                                                                              KC_TAB,
                   //  MT(MOD_LSFT, KC_SPC), MT(MOD_LCTL, KC_DEL), MT(MOD_LALT, KC_TAB),
-                                                            KC_SPC, KC_DEL, KC_LALT,
+                                                            KC_SPC, KC_DEL, KC_RALT,
         // right hand
         KC_QUOTE,  KC_6,                   KC_7,    KC_8,    KC_9,     KC_0,  KC_BSLS,
         KC_RBRC,   KC_Y,                   KC_U,    KC_I,    KC_O,     KC_P,  KC_QUOT,
                    KC_H,                   KC_J,    KC_K,    KC_L,  KC_SCLN,  KC_MINS,
         KC_RO,     KC_N,                   KC_M, KC_COMM,  KC_DOT,  KC_SLSH,   KC_EQL,
                         //  MT(MOD_RGUI, KC_LANG1),   KC_UP, KC_DOWN, MO(MOVE), MO(CALC),
-                   KC_RGUI,               KC_UP, KC_DOWN, MO(MOVE), MO(CALC),
+                   KC_RGUI,               KC_UP, KC_DOWN, KC_RALT, MO(MOVE),
              KC_RALT, KC_RCTL,
              KC_TAB,
             //  MT(MOD_RALT, KC_ESC), KC_BSPC, KC_ENT
@@ -66,58 +66,58 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Media and mouse keys
  *
  * ,--------------------------------------------------------.      ,--------------------------------------------------.
- * | TRANS  |  F1  |   F2   |   F3   |   F4   |  F5  |      |      |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
+ * | TRANS  |  F1  |   F2   |   F3   |   F4   |  F5  |      |      | Power|  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |--------+------+--------+--------+--------+-------------|      |------+------+------+------+------+------+--------|
- * | TRANS  |      |  Rclk  |  MsUp  |  Lclk  |      | WhUp |      | WhUp |      |      | UP   |      |      |   F12  |
+ * | TRANS  |      |        |  MsUp  |        |      | WhUp |      | WhUp |      |      | UP   |      |      |   F12  |
  * |--------+------+--------+--------+--------+------|      |      |      |------+------+------+------+------+--------|
- * | TRANS  |WhLeft| MsLeft | WhClk  | MsRght |WhRght|------|      |------|      | Left |      | Right|      |        |
+ * | TRANS  |WhLeft| MsLeft | MsDown | MsRght |WhRght|------|      |------|      | Left | Down | Right|      |  VolU  |
  * |--------+------+--------+--------+--------+------|WhDown|      |WhDown|------+------+------+------+------+--------|
- * | TRANS  |      |MsAccel0| MsDown |MsAccel2|      |      |      |      |      |      | Down |      |      |        |
+ * | TRANS  |      |        |        |        |      |      |      |      |      |      |      |      |      |  VolD  |
  * `--------+------+--------+--------+--------+-------------'      `-------------+------+------+------+------+--------'
- *   | TRANS| TRANS|        |MsAccel1| TRANS|                                   | TRANS|      |      | TRANS| TRANS  |
- *   `--------------------------------------'                                   `------------------------------------'
+ *   | TRANS| TRANS| TRANS  | TRANS  | TRANS  |                                  | TRANS| TRANS|TRANS | TRANS| TRANS  |
+ *   `----------------------------------------'                                  `------------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | TRANS| TRANS|       | TRANS| TRANS|
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      | TRANS|       | TRANS|      |      |
- *                                 | TRANS|TRANS |------|       |------| TRANS| TRANS|
- *                                 |      |      | TRANS|       | TRANS|      |      |
+ *                                 | Lclk | Rclk |------|       |------|MsAcl2|MsAcl1|
+ *                                 |      |      | WhClk|       |MsAcl0|      |      |
  *                                 `--------------------'       `--------------------'
  */
-// Cursol Keys and Mouse Keys
+// Cursor Keys and Mouse Keys
 [MOVE] = KEYMAP(
-       KC_TRNS,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,  KC_NO,
-       KC_TRNS,  KC_NO,   KC_BTN2, KC_MS_U, KC_BTN1, KC_NO,  KC_WH_D,
-       KC_TRNS,  KC_WH_L, KC_MS_L, KC_BTN3, KC_MS_R, KC_WH_R,
-       KC_TRNS,  KC_NO,   KC_ACL0, KC_MS_D, KC_ACL2, KC_NO,  KC_WH_U,
-       KC_TRNS,  KC_TRNS, KC_NO,   KC_ACL1, KC_TRNS,
+       KC_TRNS,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,  KC_MUTE,
+       KC_TRNS,  KC_NO,   KC_NO,   KC_MS_U, KC_NO,   KC_NO,  KC_WH_D,
+       KC_TRNS,  KC_WH_L, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_R,
+       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_WH_U,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
-                                  KC_TRNS, KC_TRNS, KC_TRNS,
+                                  KC_BTN1, KC_BTN2, KC_BTN3,
     // right hand
-       KC_NO,   KC_F6,    KC_F7,    KC_F8,   KC_F9,   KC_F10, KC_F11,
+       KC_PWR,  KC_F6,    KC_F7,    KC_F8,   KC_F9,   KC_F10, KC_F11,
        KC_WH_D, KC_NO,    KC_NO,    KC_UP,   KC_NO,   KC_NO,  KC_F12,
-                KC_NO,    KC_LEFT,  KC_NO,   KC_RGHT, KC_NO,  KC_NO,
-       KC_WH_U, KC_NO,    KC_NO,    KC_DOWN, KC_NO,   KC_NO,  KC_PWR,
-                          KC_TRNS,  KC_TRNS, KC_NO,   KC_TRNS,  KC_TRNS,
+                KC_NO,    KC_LEFT,  KC_DOWN, KC_RGHT, KC_NO,  KC_VOLU,
+       KC_WH_U, KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,  KC_VOLD,
+                          KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS
+       KC_ACL0, KC_ACL2, KC_ACL1
      ),
 
 
 /* Keymap 2: Keys like a Culculator
  *
  * ,---------------------------------------------------.           ,--------------------------------------------------.
- * | TRANS   |  F14 |  F15 |  F16 |  F17 |  F18 |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
+ * | TRANS   |      |      |      |      |      |      |           |      |      |   7  |   8  |   9  |      |        |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * | TRANS   |      |      |  UP  |      |      | WhUp |           | WhUp |      |   7  |   8  |   9  |   /  |   F12  |
+ * | TRANS   |      |      |  UP  |      |      |WhDown|           |WhDown|      |   4  |   5  |   6  |   *  |   /    |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | TRANS   |WhLEFT| LEFT |      | RIGHT|WhRght|------|           |------|      |   4  |   5  |   6  |   *  |   =    |
- * |---------+------+------+------+------+------|WhDown|           |WhDown|------+------+------+------+------+--------|
- * | TRANS   |      |      | DOWN |      |      |      |           |      |      |   1  |   2  |   3  |   -  |   +    |
+ * | TRANS   |WhLEFT| LEFT | DOWN | RIGHT|WhRght|------|           |------|      |   1  |   2  |   3  |   +  |   -    |
+ * |---------+------+------+------+------+------|WhUp  |           |WhUp  |------+------+------+------+------+--------|
+ * | TRANS   |      |      |      |      |      |      |           |      |      |   0  |   0  |   .  |   +  |   =    |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | TRANS | TRANS|      |      | TRANS|                                       | TRANS|   0  |   .  | TRANS| TRANS  |
+ *   | TRANS | TRANS| TRANS| TRANS| TRANS|                                       | TRANS| TRANS| TRANS| TRANS| TRANS  |
  *   `-----------------------------------'                                       `------------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | TRANS| TRANS|       | TRANS| TRANS|
@@ -127,22 +127,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      | TRANS|       | TRANS|      |      |
  *                                 `--------------------'       `--------------------'
  */
-// SYMBOLS
+// act like ten keys
 [CALC] = KEYMAP(
        // left hand
-       KC_TRNS,  KC_F14,  KC_F15,   KC_F16,   KC_F17,   KC_F18,  KC_NO,
+       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
        KC_TRNS,  KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,  KC_WH_D,
-       KC_TRNS,  KC_WH_L, KC_LEFT, KC_NO,   KC_RIGHT,KC_WH_R,
-       KC_TRNS,  KC_NO,   KC_NO,   KC_DOWN, KC_NO,   KC_NO,  KC_WH_U,
-       KC_TRNS,  KC_TRNS, KC_NO,   KC_NO,   KC_TRNS,
+       KC_TRNS,  KC_WH_L, KC_LEFT, KC_DOWN, KC_RIGHT,KC_WH_R,
+       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_WH_U,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
                                   KC_TRNS, KC_TRNS, KC_TRNS,
        // right hand
-       KC_TRNS, KC_F6,   KC_MRWD,  KC_MSTP,   KC_MFFD,   KC_MUTE,  KC_VOLD,
-       KC_WH_D, KC_NO,   KC_P7,  KC_P8,   KC_P9,   KC_PSLS, KC_VOLU,
-                KC_NO,   KC_P4,  KC_P5,   KC_P6,   KC_PAST, KC_PEQL,
-       KC_WH_U, KC_NO,   KC_P1,  KC_P2,   KC_P3,   KC_PMNS, KC_PLUS,
+       KC_TRNS, KC_NO,   KC_P7,  KC_P8,   KC_P9,   KC_NO,   KC_NO,
+       KC_WH_D, KC_NO,   KC_P4,  KC_P5,   KC_P6,   KC_PAST, KC_PSLS,
+                KC_NO,   KC_P1,  KC_P2,   KC_P3,   KC_PLUS, KC_PMNS,
+       KC_WH_U, KC_NO,   KC_P0,  KC_PDOT, KC_PEQL, KC_PLUS, KC_PEQL,
                          KC_TRNS,KC_P0,   KC_PDOT, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
